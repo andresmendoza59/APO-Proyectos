@@ -90,5 +90,15 @@ class Circulo:
         else:
             print("Las coordenadas introducidas no están contenidas en el círculo.")
 
-c1 = Circulo(centro = (0,0), radio = 3)
-c1.esta_en_circulo()
+#Cree una clase Carta que contenga dos propiedades valor y pinta
+
+class Carta:
+    PINTAS = ('Corazones', 'Diamantes', 'Tréboles', 'Picas')
+
+    def __init__(self, valor, pinta):
+        self.valor = valor
+        self.pinta = pinta
+
+carta1 = Carta(10, 'Corazones')
+carta2 = Carta(4, 'Picas')
+carta3 = Carta(11, 'Diamantes')
