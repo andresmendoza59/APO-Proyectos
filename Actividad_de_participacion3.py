@@ -93,12 +93,48 @@ class Circulo:
 #Cree una clase Carta que contenga dos propiedades valor y pinta
 
 class Carta:
-    PINTAS = ('Corazones', 'Diamantes', 'Tréboles', 'Picas')
+    PINTAS = ("Corazones", "Diamantes", "Tréboles", "Picas")
 
     def __init__(self, valor, pinta):
         self.valor = valor
         self.pinta = pinta
 
-carta1 = Carta(10, 'Corazones')
-carta2 = Carta(4, 'Picas')
-carta3 = Carta(11, 'Diamantes')
+# Cree una clase CuentaBancaria que contenga los siguientes atributos: numero_cuenta, propietarios y balance.
+
+class CuentaBancaria:
+    def __init__(self, numero_cuenta, propietarios, balance):
+        self.numero_cuenta = numero_cuenta
+        self.propietarios = propietarios
+        self.balance = balance
+
+    def depositar(self):
+
+            cantidad = float(input("Ingrese la cantidad a depositar"))
+
+            cantidad += self.balance
+
+            return cantidad
+    
+    def retirar(self):
+        historial = ("Dinero retirado: ")
+        cantidad_a_retirar = float(input("Ingrese la cantidad que desea retirar: "))
+
+        if cantidad_a_retirar <= self.balance:
+            self.balance -= cantidad_a_retirar
+            historial.append(cantidad_a_retirar)
+            print("Dinero exitosamente retirado. ¿Desea ver su historial?. De ser así, escriba 'y'")
+            confirmacion = input()
+            if confirmacion.lower() == 'y':
+                print(historial)
+
+        else:
+            print("La cantidad a retirar sobrepasa el dinero en su cuenta.")
+
+    def aplicar_cuota_manejo(self):
+       self.balance -= (self.balance / 100) * 2
+       return self.balance
+
+    def mostrar_detalles(self):
+        print(f"Número de cuenta: {self.numero_cuenta}", end="")
+        print(f"Propietarios: {self.propietarios}", end="")
+        print(f"Balance de la cuenta: {self.balance}")
